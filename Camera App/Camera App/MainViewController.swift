@@ -9,17 +9,26 @@
 import UIKit
 
 class MainViewController: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate, UIScrollViewDelegate {
+UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     override func viewDidLoad() {
+        self.imageStore = [UIImage]()
         super.viewDidLoad()
         let gesture = UITapGestureRecognizer(target: self, action: "zoomImage")
         gesture.numberOfTapsRequired = 2
         self.scrollView.addGestureRecognizer(gesture)
         self.scrollView.delegate = self
+        previewCollectionView.alpha = 0.0
         // Do any additional setup after loading the view.
     }
     
+    func collectionView(collectionView: UICollectionView,
+        didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let image = self.imageStore[indexPath.item]
+        self.displayImageView.image = image
+    }
+    
+    private var imageStore : [UIImage]!
     private var currentZoom : CGFloat = 1.0
     
     func zoomImage(){
@@ -45,6 +54,19 @@ UINavigationControllerDelegate, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func collectionView (collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let image = self.imageStore[indexPath.row]
+        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PreviewCellReuseID", forIndexPath: indexPath)as? PreviewCollectionViewCell{
+            cell.previewImageView.image = image
+            return cell
+        }
+        return UICollectionViewCell()
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        numberOfItemsInSection section: Int) -> Int { return self.imageStore.count
+    }
     
 
     /*
@@ -57,6 +79,7 @@ UINavigationControllerDelegate, UIScrollViewDelegate {
     }
     */
 
+    @IBOutlet weak var previewCollectionView: UICollectionView!
     @IBAction func actionButtonTouched(sender: AnyObject) {if let image = self.displayImageView.image {
         //Add code here
         let activityViewController =
@@ -80,8 +103,11 @@ UINavigationControllerDelegate, UIScrollViewDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage,
         editingInfo: [String : AnyObject]?) {
-            self.displayImageView.image = image
-            picker.dismissViewControllerAnimated(true, completion: nil)
+        self.displayImageView.image = image
+        self.imageStore.insert(image, atIndex: 0)
+        self.previewCollectionView.reloadData()
+        previewCollectionView.alpha = 1.0
+        picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
