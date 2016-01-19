@@ -78,6 +78,19 @@ UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "FilterSegue" {
+            if let vc : FilterViewController =
+            segue.destinationViewController as? FilterViewController {
+            vc.sourceImage = self.displayImageView.image
+            }
+        }
+    }
+
+
 
     @IBOutlet weak var previewCollectionView: UICollectionView!
     @IBAction func actionButtonTouched(sender: AnyObject) {if let image = self.displayImageView.image {
@@ -96,6 +109,16 @@ UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDataSource
     }
     @IBAction func libraryButtonTouched(sender: UIBarButtonItem) {
         self.displayImagePicker(.PhotoLibrary)
+    }
+    
+    @IBAction func didSelectFilter(segue: UIStoryboardSegue) {
+        if segue.identifier == "FilterSelectedSegue" {
+        if let source = segue.sourceViewController as?
+        FilterViewController,
+        let image = source.filteredImage {
+        self.displayImageView.image = image
+        }
+        }
     }
     
     @IBOutlet weak var scrollView: UIScrollView!

@@ -13,6 +13,9 @@
 		6D1C23D31C0FB85D00CB1A9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D1C23D11C0FB85D00CB1A9A /* LaunchScreen.storyboard */; };
 		6D1C23DD1C0FBD7D00CB1A9A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1C23DC1C0FBD7D00CB1A9A /* MainViewController.swift */; };
 		F00DD3C21C1F984600FB9F72 /* PreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DD3C11C1F984600FB9F72 /* PreviewCollectionViewCell.swift */; };
+		F0A25D631C4DB286009BFF41 /* ImageFilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A25D621C4DB286009BFF41 /* ImageFilterManager.swift */; };
+		F0A25D651C4DB9FA009BFF41 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A25D641C4DB9FA009BFF41 /* FilterTableViewCell.swift */; };
+		F0A25D671C4DBD6A009BFF41 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A25D661C4DBD6A009BFF41 /* FilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		6D1C23D41C0FB85D00CB1A9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D1C23DC1C0FBD7D00CB1A9A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F00DD3C11C1F984600FB9F72 /* PreviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		F0A25D621C4DB286009BFF41 /* ImageFilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFilterManager.swift; sourceTree = "<group>"; };
+		F0A25D641C4DB9FA009BFF41 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		F0A25D661C4DBD6A009BFF41 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,7 @@
 		6D1C23BC1C0FB85D00CB1A9A = {
 			isa = PBXGroup;
 			children = (
+				F0A25D621C4DB286009BFF41 /* ImageFilterManager.swift */,
 				6D1C23C71C0FB85D00CB1A9A /* Camera App */,
 				6D1C23C61C0FB85D00CB1A9A /* Products */,
 			);
@@ -63,6 +70,8 @@
 				6D1C23D41C0FB85D00CB1A9A /* Info.plist */,
 				6D1C23DC1C0FBD7D00CB1A9A /* MainViewController.swift */,
 				F00DD3C11C1F984600FB9F72 /* PreviewCollectionViewCell.swift */,
+				F0A25D641C4DB9FA009BFF41 /* FilterTableViewCell.swift */,
+				F0A25D661C4DBD6A009BFF41 /* FilterViewController.swift */,
 			);
 			path = "Camera App";
 			sourceTree = "<group>";
@@ -139,9 +148,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0A25D671C4DBD6A009BFF41 /* FilterViewController.swift in Sources */,
 				F00DD3C21C1F984600FB9F72 /* PreviewCollectionViewCell.swift in Sources */,
 				6D1C23C91C0FB85D00CB1A9A /* AppDelegate.swift in Sources */,
 				6D1C23DD1C0FBD7D00CB1A9A /* MainViewController.swift in Sources */,
+				F0A25D631C4DB286009BFF41 /* ImageFilterManager.swift in Sources */,
+				F0A25D651C4DB9FA009BFF41 /* FilterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
